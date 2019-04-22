@@ -1,5 +1,5 @@
-// example usage: binaryBucketsSearch([[0,20],[40,60],[100,120],[140,160],104) // => 2
-// explenation: finds the index of the array that has first value smaller 
+// example usage: binaryBucketsSearch([[0,20],[40,60],[100,120],[140,160]],104) // => 2
+// explenation: finds the index of the array that has the first value smaller 
 //              and second value greater than the search value
 function binaryBucketsSearch(array, value) {
   	var j = 0, length = array.length;
