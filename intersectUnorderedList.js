@@ -1,6 +1,7 @@
 // fast unordered lists intersection with time complexity O(m+n) for the case of 2 arrays
 // example: intersectUnorderedLists([1,2,3],[3,4,5]) => [3]
 // performance: execution time linear with respect to the sum of the lengths of input arrays (loops exacly once trough every array): O(n)
+// note: works only for unique arrays
 function intersectUnorderedLists(){
 	var shortest=0;
 	// find shortest
