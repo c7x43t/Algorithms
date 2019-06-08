@@ -1,4 +1,5 @@
-// O(2n) worst, O(n) best
+// O(2n) worst, O(n) best, where n is the total lengths of the input arrays
+// and the worst case is identical arrays and in the best cause arrays have no common elements
 function intersectOrderedLists(){
 	if(arguments.length===2) return intersect_safe(arguments[0],arguments[1])
 	var len=arguments.length;
