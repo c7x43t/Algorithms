@@ -131,3 +131,8 @@ var sort=(function(){
     
     }());
 }());
+/*
+minified:
+var sort=function(){var k=function(){function f(b,c,e){for(var a,d;(d=(c<<1)+1)<=e;)if(a=d,d=c,b[d]<b[a]&&(d=a),a+=1,a<=e&&b[d]<b[a]&&(d=a),d!==c){a=b;var f=d,g=a[c];a[c]=a[f];a[f]=g;c=d}else break}return function(b){for(var c=b.length,e=(c>>>1)-1;0<=e;e--)f(b,e,c-1);for(--c;0<c;c--){e=b;var a=e[c];e[c]=e[0];e[0]=a;f(b,0,c-1)}return b}}(),l=function(){function f(b,c,e){var a=c;for(var d=e,h=b[a+d>>>1];a<=d;){for(;b[a]<h;)a++;for(;b[d]>h;)d--;if(a<=d){var g=b[a];b[a++]=b[d];b[d--]=g}}c<a-1&&f(b,c,
+a-1);e>a&&f(b,a,e)}return function(b){f(b,0,b.length-1);return b}}();return function(f){return 1E3>f.length?k(f):l(f)}}()
+*/
