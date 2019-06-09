@@ -3,7 +3,7 @@ function linkedElement(value,previous,next,list){
 	this.previous=previous;
 	this.next=next;
 	this.list=list;
-}
+} 
 linkedElement.prototype.replace=function(value){
 	var newElement=new linkedElement(value,this.previous,this.next,this.list);
 	if(this.previous!==undefined){
