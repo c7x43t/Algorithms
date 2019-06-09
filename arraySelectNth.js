@@ -1,17 +1,4 @@
 // select the n biggest elements in an array: arraySelect(someArray,4) => [biggest,...,4th biggest]
-function arraySelect(v,n){
-	var heap=v.slice(0,n).sort();
-	if(v.length<=n) return heap;
-	for(var i=n;i<v.length;i++){
-		// if the current number is greater than the smallest number of the heap insert it into the heap
-		if(v[i]>=heap[0]){
-			var inserted=false;
-			heap.shift();
-			heap.splice(sortedIndex(heap,v[i]),0,v[i]);
-		}
-	}
-	return heap;
-}
 // binary search in sorted array for the insertion index given a value
 // https://stackoverflow.com/a/21822316/9905358
 function sortedIndex(array, value) { 
@@ -24,7 +11,21 @@ function sortedIndex(array, value) {
     }
     return low;
 }
-// the naive approach for searching the insertion point, a simple loop, seems to perform exactly as fast as the binary search approach
+// select the n biggest elements in an array
+function arraySelect(v,n){
+	var heap=v.slice(0,n).sort();
+	if(v.length<=n) return heap;
+	for(var i=n;i<v.length;i++){
+		// if the current number is greater than the smallest number of the heap insert it into the heap
+		if(v[i]>=heap[0]){
+			heap.shift();
+			heap.splice(sortedIndex(heap,v[i]),0,v[i]);
+		}
+	}
+	return heap;
+}
+// the naive approach for searching the insertion point, a simple loop
+// performance is identical for n=10 and falls of if n gets bigger
 function arraySelectNaive(v,n){
 	var heap=v.slice(0,n).sort();
 	if(v.length<=n) return heap;
@@ -46,4 +47,38 @@ function arraySelectNaive(v,n){
 		}
 	}
 	return heap;
+}
+// linked list approach, sligthly faster than the other ones if n=10, doesnt scale well with n
+function arraySelectLL(v,n){
+	var result=sort(v.slice(0,n));
+	if(v.length<=n) return result;
+	var heap=new linkedList();
+	for(var i=0;i<n;i++) heap.append(result[i]);
+	var element;
+	for(var i=n;i<v.length;i++){
+		// if the current number is greater than the smallest number of the heap insert it into the heap
+		element=heap.first;
+		if(v[i]>=element.value){
+			var inserted=false;
+			for(var j=0;j<n;j++){
+				if(element.value>=v[i]){
+					element.previous.replace(v[i]);
+					inserted=true;
+					break;
+				}
+				element=element.next;
+			}
+			if(!inserted){
+				heap.append(v[i]);
+				heap.first.remove();
+			}
+		}
+	}
+	element=heap.first;
+	for(var i=0;i<n;i++){
+		result[i]=element.value;
+		element=element.next
+		
+	}
+	return result;
 }
