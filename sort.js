@@ -1,13 +1,6 @@
 // fastest sort algorithm for arrays of numbers combining heap sort and quick sort algorithms
 // significantly faster than Array.prototype.sort
 var sort=(function(){
-    return function sort(v){
-        if(v.length<1e3){
-            return heap3Sort(v);
-        }else{
-            return quickmiddleSort(v);
-        }
-    }
     var heap3Sort = (function(){
         /*jshint bitwise: false*/
         "use strict";
@@ -130,6 +123,13 @@ var sort=(function(){
         };
     
     }());
+    return function sort(v){
+        if(v.length<1e3){
+            return heap3Sort(v);
+        }else{
+            return quickmiddleSort(v);
+        }
+    }
 }());
 /*
 minified:
