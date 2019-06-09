@@ -9,6 +9,7 @@ function intersectOrderedLists(){
 	for(var i=0;i<len;i++){
 		if(i===shortest) continue;
 		result=intersect_safe(result,arguments[i]);
+		if(result.length===0) return result;
 	}
 	return result;
 }
