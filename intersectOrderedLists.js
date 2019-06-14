@@ -28,3 +28,30 @@ function intersect_safe(a, b){
   }
   return result;
 }
+// even faster version:
+// faster intersection algorithm + inline
+function intersectOrderedListsInline(sets){
+	var shortest=0;
+	for(var i=1;i<sets.length;i++) if(sets[i].length<sets[shortest].length) shortest=i;
+	var result=sets[shortest];
+	for(var i=0,a,b,j,k;i<sets.length;i++){
+		if(result.length===0) return result; 
+		if(i===shortest) continue;
+		a=result;
+		b=sets[i];
+		j=0;
+		k=0;
+		result=[];
+		while(j<a.length){
+			if(a[j]===b[k]){
+				result.push(a[j]);
+				j++;i++;
+			}else if(a[j]<b[k]){
+				while(a[j]<b[k]) j++;
+			}else{
+				while(b[k]<a[j]) k++;
+			}
+		}
+	}
+	return result;
+}
