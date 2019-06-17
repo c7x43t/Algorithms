@@ -1,5 +1,4 @@
-function binarySearch(array, value) {
-  	var j = 0, length = array.length;
+function binarySearch(array, value, j=0, length=array.length) {
     while (j < length) {
     	var i = (length + j - 1) >> 1; // move the pointer to 
       if (value > array[i]) 
