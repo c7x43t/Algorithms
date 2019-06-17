@@ -4,9 +4,8 @@
 // The skipped elements need to be checked after skipping some elements:
 // In the case of step size 2 : Check the previous element
 // In case step size>2 : Binary search the previously skipped range
-// This results in the best case complexity of O(2*min(n,m)) or O(n+n), if n<m
-// or the more realistc complexity of O(min(n,m)*(2+log2(ratio))), ratio=max(m,n)/min(m,n)
-// or O(n+n+n*log2(m/n)), if n<m
+// This results in the best case complexity of O(n+n), if n<m
+// or the more realistc complexity of O(n+n+n*log2(m/n)), if n<m
 function binarySearch(array, value, start = 0, end = array.length) {
     var j = start,
         length = end;
