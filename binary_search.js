@@ -1,3 +1,4 @@
+// source: https://gist.github.com/kidGodzilla/92508419261b98ea6a30
 function binarySearch(array, value, j=0, length=array.length) {
     while (j < length) {
     	var i = (length + j - 1) >> 1; // move the pointer to 
