@@ -6,9 +6,7 @@
 // In case step size>2 : Binary search the previously skipped range
 // This results in the best case complexity of O(n+n), if n<m
 // or the more propable complexity of O(n+n+n*log2(m/n)), if n<m
-function binarySearch(array, value, start = 0, end = array.length) {
-    var j = start,
-        length = end;
+function binarySearch(array, value, j = 0, length = array.length) {
     while (j < length) {
         var i = (length + j - 1) >> 1; // move the pointer to
         if (value > array[i])
@@ -20,7 +18,7 @@ function binarySearch(array, value, start = 0, end = array.length) {
     }
     return -1;
 }
-function intersect2OrderedSetsEx(a, b) {
+function intersect2OrderedSets(a, b) {
     var j = 0;
     var k = 0;
     var ratio = ~~(b.length / a.length) - 1 || 1;
@@ -82,7 +80,7 @@ function intersect2OrderedSetsEx(a, b) {
     return result;
 }
 
-function intersectOrderedSetsEx() {
+function intersectOrderedSets() {
     var shortest = 0;
     for (var i = 1; i < arguments.length; i++)
         if (arguments[i].length < arguments[shortest].length) shortest = i;
@@ -92,7 +90,7 @@ function intersectOrderedSetsEx() {
         if (i === shortest) continue;
         a = result;
         b = arguments[i];
-        result = intersect2OrderedSetsEx(a, b);
+        result = intersect2OrderedSets(a, b);
     }
     return result;
 }
