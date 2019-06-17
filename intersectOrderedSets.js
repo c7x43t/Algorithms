@@ -12,14 +12,28 @@ function intersectOrderedSets(){
 		j=0;
 		k=0;
 		result=[];
-		while(j<a.length){
-			if(a[j]===b[k]){
-				result.push(a[j]);
-				j++;i++;
-			}else if(a[j]<b[k]){
-				while(a[j]<b[k]) j++;
-			}else{
-				while(b[k]<a[j]) k++;
+		if(b.length/a.length>=2){
+			while(j<a.length){
+				if(a[j]===b[k]){
+					result.push(a[j]);
+					j++;k++;
+				}else if(a[j]<b[k]){
+					while(a[j]<b[k]) j++;
+				}else{
+					while(b[k]<a[j]) k+=2;
+					if(a[j]<=b[k-1]) k--;
+				}
+			}
+		}else{
+			while(j<a.length){
+				if(a[j]===b[k]){
+					result.push(a[j]);
+					j++;k++;
+				}else if(a[j]<b[k]){
+					while(a[j]<b[k]) j++;
+				}else{
+					while(b[k]<a[j]) k++;
+				}
 			}
 		}
 	}
