@@ -18,6 +18,7 @@ function intersect2OrderedSets(a,b){
 	var k=0;
 	var ratio=~~(b.length/a.length)-1||1;
 	var result=[];
+	var index;
 	while(j<a.length){
 		if(a[j]===b[k]){
 			result.push(a[j]);
