@@ -5,7 +5,7 @@
 // In the case of step size 2 : Check the previous element
 // In case step size>2 : Binary search the previously skipped range
 // This results in the best case complexity of O(n+n), if n<m
-// or the more realistc complexity of O(n+n+n*log2(m/n)), if n<m
+// or the more propable complexity of O(n+n+n*log2(m/n)), if n<m
 function binarySearch(array, value, start = 0, end = array.length) {
     var j = start,
         length = end;
