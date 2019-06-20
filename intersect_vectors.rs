@@ -1,5 +1,5 @@
 fn intersect_vectors<T>(vecs: &Vec<Vec<T>>)-> Vec<T> where T: PartialOrd,{
-    let len : usize = vecs.len();
+    const len : usize = vecs.len();
     let mut shortest : usize = 0;
     for i in 1..len {
         if vecs[i].len() < vecs[shortest].len() {
@@ -18,8 +18,8 @@ fn intersect_2_vectors<'a, T>(a: &'a [T],b: &'a [T]) -> Vec<&'a T> where T: Part
     let mut result = Vec::new();
     let mut i  = 0;
     let mut j  = 0;
-    let a_len= a.len();
-    let b_len = b.len();
+    const a_len : usize = a.len();
+    const b_len : usize = b.len();
     loop {
         if &a[i] == &b[j] {
             result.push(&a[i]);
