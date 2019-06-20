@@ -15,11 +15,11 @@ fn intersect_vectors<T>(vecs: &Vec<Vec<T>>)-> Vec<T> where T: PartialOrd,{
     return result;
 }
 fn intersect_2_vectors<'a, T>(a: &'a [T],b: &'a [T]) -> Vec<&'a T> where T: PartialOrd,{
-    let mut result = Vec::new();
-    let mut i  = 0;
-    let mut j  = 0;
-    const a_len : usize = a.len();
-    const b_len : usize = b.len();
+    let mut result:Vec<&'a T> = Vec::new();
+    let mut i:usize = 0;
+    let mut j:usize = 0;
+    let a_len:usize = a.len();
+    let b_len:usize = b.len();
     loop {
         if &a[i] == &b[j] {
             result.push(&a[i]);
@@ -32,7 +32,7 @@ fn intersect_2_vectors<'a, T>(a: &'a [T],b: &'a [T]) -> Vec<&'a T> where T: Part
             while i < a_len && &a[i] < &b[j] {
                 i+=2;
             }
-            if i -1 >= a_len {
+            if i >= a_len {
                 break;
             }
             if &a[i-1] >= &b[j] {
@@ -42,7 +42,7 @@ fn intersect_2_vectors<'a, T>(a: &'a [T],b: &'a [T]) -> Vec<&'a T> where T: Part
             while j < b_len && &a[i] > &b[j] {
                 j+=2;
             }
-            if j -1 >= b_len {
+            if j >= b_len {
                 break;
             }
             if &a[i] <= &b[j-1] {
@@ -52,3 +52,4 @@ fn intersect_2_vectors<'a, T>(a: &'a [T],b: &'a [T]) -> Vec<&'a T> where T: Part
     }
     return result;
 }
+
