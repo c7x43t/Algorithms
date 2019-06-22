@@ -39,10 +39,10 @@ text_data.forEach((document,docid)=>{
 		}
 		if(!terms.has(termId)){
 			terms.set(termId,1);
+			index[termId].push(docid);
 		}else{
 			terms.set(termId,terms.get(termId)+1);
 		}
-		index[termId].push(docid);
 		len++;
 	}
 	var docDataContent={
