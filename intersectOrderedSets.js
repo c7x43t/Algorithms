@@ -8,6 +8,11 @@
 // or the more propable complexity of O(n+n+n*log2(m/n)), if n<m
 // based on https://cs.stackexchange.com/a/65866 describing following paper:
 // http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.419.8292
+
+// TODO: fix failing test:
+var a=[447, 2703, 2715];
+var b=[7, 21, 23, 24, 2020, 2177, 2204, 2205, 2211, 2212, 2215, 2353, 2363, 2392, 2427, 2440, 2443, 2447, 2453, 2455, 2464, 2466, 2474, 2477, 2478, 2484, 2486, 2489, 2498, 2500, 2513, 2514, 2528, 2541, 2542, 2548, 2549, 2551, 2556, 2573, 2574, 2579, 2606, 2607, 2640, 2660, 2674, 2680, 2684, 2691, 2709, 2715, 2717];
+// should return [2715]
 function intersect2OrderedSets(a, b) {
 	let result=[];
     let i=0;
