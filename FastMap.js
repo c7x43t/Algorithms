@@ -1,4 +1,5 @@
-// a faster Map implementation [BROKEN]
+// a faster Map implementation
+// splitting keys by strings and numbers it performs better after many deletes from the map
 function Empty(){}
 Empty.prototype=Object.create(null);
 function FastMap(){
