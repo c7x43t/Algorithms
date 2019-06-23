@@ -12,5 +12,5 @@ FastMap.prototype.get=function(key){
 	return typeof key === "number"? this.arr[key]:this.obj[key]
 }
 FastMap.prototype.delete=function(key){
-	typeof key === "number"? (delete this.arr[key]):(delete this.obj[key]);
+	typeof key === "number"? (this.arr[key]=undefined):(delete this.obj[key]);
 }
