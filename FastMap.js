@@ -4,6 +4,7 @@ function FastMap(){
 	this.arr=new Map;
 	this.obj=new Map;
 }
+FastMap.prototype=Object.create(null);
 FastMap.prototype.set=function(key,value){
 	return typeof key === "number"? this.arr.set(key,value):this.obj.set(key,value);
 }
