@@ -2,16 +2,16 @@
 function Empty(){}
 Empty.prototype=Object.create(null);
 function FastMap(){
-	this.arr=[];
-	this.obj=new Empty;
+	this.arr=new Map;
+	this.obj=new Map;
 }
 FastMap.prototype.set=function(key,value){
-	return typeof key === "number"? (this.arr[key]=value):(this.obj[key]=value);
+	return typeof key === "number"? this.arr.set(key,value):this.obj.set(key,value);
 }
 FastMap.prototype.get=function(key){
-	return typeof key === "number"? this.arr[key]:this.obj[key]
+	return typeof key === "number"? this.arr.get(key):this.obj.get(key)
 }
 FastMap.prototype.delete=function(key){
-	// setting undefined is a memory leak
-	typeof key === "number"? (this.arr[key]=undefined):(delete this.obj[key]);
+	typeof key === "number"? this.arr.delete(key):this.obj.delete(key);
 }
+
