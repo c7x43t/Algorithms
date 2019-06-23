@@ -1,7 +1,5 @@
 // a faster Map implementation
 // splitting keys by strings and numbers it performs better after many deletes from the map
-function Empty(){}
-Empty.prototype=Object.create(null);
 function FastMap(){
 	this.arr=new Map;
 	this.obj=new Map;
@@ -15,4 +13,3 @@ FastMap.prototype.get=function(key){
 FastMap.prototype.delete=function(key){
 	typeof key === "number"? this.arr.delete(key):this.obj.delete(key);
 }
-
