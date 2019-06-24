@@ -20,7 +20,7 @@ var reg=/\w+/g;
 var N=0; // number of documents
 var avgLen=0;
 // text data represents an array of documents (strings) to be indexed
-text_data.forEach((document,docid)=>{
+data.forEach((document,docid)=>{
 	var match;
 	var key;
 	N++;
