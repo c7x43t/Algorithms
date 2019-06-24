@@ -124,11 +124,7 @@ var sort=(function(){
     
     }());
     return function sort(v){
-        if(v.length<1e3){
-            return heap3Sort(v);
-        }else{
-            return quickmiddleSort(v);
-        }
+         return (v.length<1e3?heap3Sort:quickmiddleSort)(v);
     }
 }());
 /*
