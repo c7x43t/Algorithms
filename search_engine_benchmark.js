@@ -1,5 +1,13 @@
 // dataset: https://raw.githubusercontent.com/scrollmapper/bible_databases/master/json/t_kjv.json
-
+var data;
+fetch('https://raw.githubusercontent.com/scrollmapper/bible_databases/master/json/t_kjv.json')
+.then(function(response) {
+    return response.json();
+  })
+  .then(function(myJson) {
+    data=myJson;
+  });
+// ______________________________________________________
 // elasticsearch API for the browser
 function noop(){}
 function httpRequest(method,url,headers={},content,callback=noop){
