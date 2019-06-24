@@ -4,8 +4,8 @@ fetch('https://raw.githubusercontent.com/scrollmapper/bible_databases/master/jso
 .then(function(response) {
     return response.json();
   })
-  .then(function(myJson) {
-    data=myJson;
+  .then(function(json) {
+    data=json.resultset.row.map(e=>e.field[4]);
   });
 // ______________________________________________________
 // elasticsearch API for the browser
