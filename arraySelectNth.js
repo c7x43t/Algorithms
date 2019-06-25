@@ -22,6 +22,7 @@ function arraySelect(v,n){
 		// if the current number is greater than the smallest number of the heap insert it into the heap
 		if(v[i]>=heap[0]){
 			heap.shift();
+			// the insertion point is determined trough a binary search O(log n) where n is the heap size
 			heap.splice(sortedIndex(heap,v[i]),0,v[i]);
 		}
 	}
