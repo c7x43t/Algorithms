@@ -15,8 +15,9 @@ function sortedIndex(array, value) {
 function arraySelect(v,n){
 	if(v.length<=n) return sort(v);
 	if(v.length<100) sort(v).slice(v.length-n-1,v.length);
+	// the heap contains the n greatest numbers observed so far
+	// it is initialized with n first numbers and sorted
 	var heap=sort(v.slice(0,n));
-	//if(v.length<=n) return heap;
 	for(var i=n;i<v.length;i++){
 		// if the current number is greater than the smallest number of the heap insert it into the heap
 		if(v[i]>=heap[0]){
