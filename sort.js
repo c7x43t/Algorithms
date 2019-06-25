@@ -1,3 +1,5 @@
+// 10x faster than Array.prototype.sort - see Benchmark section - 334 bytes gzip+min
+// Inplace sorting with constant memory: O(1)
 var sort = (function() {
     // heap 3 sort with inlined functions
     function heap3Sort(ary) {
@@ -124,6 +126,7 @@ var sort = (function() {
     }
 }());
 // Benchmark:
+// sort: 12.2s, Array.prototype.sort: 139s
 var ars=[
 	new Array(1e4).fill().map(Math.random),
 	new Array(1e3).fill().map(Math.random),
