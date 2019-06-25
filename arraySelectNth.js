@@ -13,7 +13,8 @@ function sortedIndex(array, value) {
 }
 // select the n biggest elements in an array
 function arraySelect(v,n){
-	if(v.length<100||v.length<=n) return sort(v).slice(v.length-n-1,v.length);
+	if(v.length<=n) return sort(v);
+	if(v.length<100) sort(v).slice(v.length-n-1,v.length);
 	var heap=sort(v.slice(0,n));
 	//if(v.length<=n) return heap;
 	for(var i=n;i<v.length;i++){
