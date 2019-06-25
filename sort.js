@@ -1,5 +1,6 @@
 // 10x faster than Array.prototype.sort - see Benchmark section - 334 bytes gzip+min
 // Inplace sorting with constant memory: O(1)
+// Mixing Heapsort and Quicksort depending on Array size for best performance (<5% gain)
 var sort = (function() {
     // heap 3 sort with inlined functions
     function heap3Sort(ary) {
