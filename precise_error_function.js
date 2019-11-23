@@ -4,6 +4,8 @@ function fac(n){return n>1?n*fac(n-1):1}
 var fac_cached=[];
 for(var i=0;i<=170;i++) fac_cached.push(fac(i));
 // Array index: number of approximtion steps n needed to correctly represent erf(value)
+// array is based on the inequality:
+// (x**(2n+1)/(2n*1)n!)<1e-16
 var arr=[];
 for(var n=0;n<=169;n++) arr.push(Math.pow(1e-16*(2+n+1)*fac_cached[n],1/(2*n+1)));
 function erfNthFactor(x,n){
