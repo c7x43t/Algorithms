@@ -1,4 +1,4 @@
-// calculate erf(x) with greatest accuracy within the limits of js number representation
+// calculate erf(x) with greatest accuracy within the limits of js 64bit arithmetic
 
 function fac(n){return n>1?n*fac(n-1):1}
 var fac_cached=[];
