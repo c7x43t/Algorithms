@@ -1,5 +1,5 @@
 // calculate erf(x) with greatest accuracy within the limits of js 64bit arithmetic
-
+// The Taylor series is used for calculation: https://en.wikipedia.org/wiki/Error_function#Taylor_series
 function fac(n){return n>1?n*fac(n-1):1}
 var fac_cached=[];
 for(var i=0;i<=170;i++) fac_cached.push(fac(i));
