@@ -25,6 +25,8 @@ function binarySearch(arr,target,base=0,size=arr.length){
 }
 function erf_precise(x){
 	if(x>7.2112639303613335) return 1;
+	// binary search because solving for x means solving a transcendental equation of the kind:
+	// n=(a*x)^(1/x)
 	var precision=binarySearch(arr,x);
 	var result=0;
 	for(var n=0;n<=precision;n++) result+=erfNthFactor(x,n);
